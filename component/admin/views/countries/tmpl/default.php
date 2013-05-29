@@ -10,17 +10,9 @@ defined('_JEXEC') or die;
 
 // HTML helpers
 JHtml::_('behavior.multiselect');
-
-if (version_compare(JVERSION, '3.0', 'ge'))
-{
-	JHtml::_('bootstrap.tooltip');
-	JHtml::_('dropdown.init');
-	JHtml::_('formbehavior.chosen', 'select');
-}
-else
-{
-	JHtml::_('behavior.tooltip');
-}
+JHtml::_('bootstrap.tooltip');
+JHtml::_('dropdown.init');
+JHtml::_('formbehavior.chosen', 'select');
 
 $user	= JFactory::getUser();
 $action = JRoute::_('index.php?option=com_jab&view=countries');
@@ -28,12 +20,8 @@ $listOrder	= $this->state->get('list.ordering');
 $listDirn	= $this->state->get('list.direction');
 $saveOrder	= $listOrder == 'ordering';
 
-if ($saveOrder && version_compare(JVERSION, '3.0', 'ge'))
-{
-	$saveOrderingUrl = 'index.php?option=com_jab&task=countries.saveOrderAjax&tmpl=component';
-	JHtml::_('sortablelist.sortable', 'articleList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
-}
-
+$saveOrderingUrl = 'index.php?option=com_jab&task=countries.saveOrderAjax&tmpl=component';
+JHtml::_('sortablelist.sortable', 'articleList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 ?>
 <form action="<?php echo $action; ?>" name="adminForm" class="adminForm" id="adminForm" method="post">
 	<div class="">
@@ -64,15 +52,9 @@ if ($saveOrder && version_compare(JVERSION, '3.0', 'ge'))
 					<th width="1%" class="nowrap center hidden-phone">
 						<?php echo JHtml::_('grid.sort', '<i class="icon-menu-2"></i>', 'ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 					</th>
-					<?php if (version_compare(JVERSION, '3.0', 'ge')): ?>
-						<th width="1%" class="hidden-phone">
-							<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
-						</th>
-					<?php else: ?>
-						<th width="1px">
-							<input type="checkbox" name="check-toggle" onclick="checkAll(this);">
-						</th>
-					<?php endif; ?>
+					<th width="1%" class="hidden-phone">
+						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
+					</th>
 					<th class="name">
 						<?php echo JHtml::_('grid.sort',  'COM_JAB_NAME_LABEL', 'c.name', $listDirn, $listOrder); ?>
 					</th>
