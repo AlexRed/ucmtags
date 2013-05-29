@@ -27,23 +27,35 @@ else
 }
 ?>
 <form action="<?php echo $action; ?>" method="post" name="adminForm" id="adminForm" class="form-validate">
-	<ul>
-		<li>
-			<?php echo $this->form->getLabel('name'); ?>
-			<?php echo $this->form->getInput('name'); ?>
-		</li>
-		<li>
-			<?php echo $this->form->getLabel('language'); ?>
-			<?php echo $this->form->getInput('language'); ?>
-		</li>
-		<li>
-			<?php echo $this->form->getLabel('state'); ?>
-			<?php echo $this->form->getInput('state'); ?>
-		</li>
-	</ul>
-	<!-- hidden fields -->
-  	<input type="hidden" name="option"	value="com_jab">
-  	<input type="hidden" name="id"	value="<?php echo $this->item->id; ?>">
-  	<input type="hidden" name="task" value="">
-	<?php echo JHTML::_('form.token'); ?>
+	<div class="jab-country">
+		<div class="control-group">
+		    <div class="control-label">
+				<?php echo $this->form->getLabel('name'); ?>
+		    </div>
+		    <div class="controls">
+				<?php echo $this->form->getInput('name'); ?>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <div class="control-label">
+				<?php echo $this->form->getLabel('language'); ?>
+		    </div>
+		    <div class="controls">
+				<?php echo $this->form->getInput('language'); ?>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <div class="control-label">
+				<?php echo $this->form->getLabel('state'); ?>
+		    </div>
+		    <div class="controls">
+				<?php echo $this->form->getInput('state'); ?>
+		    </div>
+		</div>
+		<!-- hidden fields -->
+	  	<input type="hidden" name="option"	value="com_jab">
+	  	<input type="hidden" name="id"	value="<?php echo $this->item->id; ?>">
+	  	<input type="hidden" name="task" value="">
+		<?php echo JHTML::_('form.token'); ?>
+	</div>
 </form>
