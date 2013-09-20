@@ -57,7 +57,7 @@
 			<folder>controllers</folder>
 			<folder>helpers</folder>
 			<folder>models</folder>
-			<folder>sqls</folder>
+			<folder>sql</folder>
 			<folder>tables</folder>
 			<folder>views</folder>
 			<filename>access.xml</filename>
